@@ -19,6 +19,7 @@ export class App {
   puntuaciones: Puntuacion[] = [];
   mostrarListaPuntuaciones = false;
   modalView: 'final' | 'guardar' | 'lista' = 'final';
+  puntuacionGuardada = false;
 
   constructor(private ngZone: NgZone, private cd: ChangeDetectorRef, private puntuacionesService: PuntuacionesService) {}
 
@@ -76,6 +77,7 @@ export class App {
 
     this.puntuacionesService.guardarPuntuacion(user).subscribe({
       next: () => {
+        this.puntuacionGuardada = true;
         this.cargarPuntuaciones();
       },
       error: (err) => console.error(err)
@@ -100,8 +102,14 @@ export class App {
   }
 
   volverAlFinal() {
-    this.modalView = 'final';
     this.showModal = true;
+
+    if (this.puntuacionGuardada) {
+      this.restart();
+      this.puntuacionGuardada = false;
+    } else {
+      this.modalView = 'final';
+    }
   }
 
   reproducirSonido() {
