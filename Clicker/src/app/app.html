@@ -1,0 +1,46 @@
+<div id="header">
+  <h2 id="titulo">MIKU DA CLICKER</h2>
+</div>
+<div id="contenedor_timer">
+  <h3 id="timer">TIEMPO RESTANTE: {{ display }}</h3>
+</div>
+<div id="main">
+  <button id="btnSumar" (click)="aumento(); reproducirSonido()" [disabled]="!timerActive"><img src="/assets/images/miku_plush.png" alt="img"/></button>
+  <p>Cantidad de clicks</p>
+  <p>{{ clicks }}</p>
+  <button id="iniciar" (click)="startTimer(1)" [disabled]="timerStart">INICIAR PARTIDA</button>
+</div>
+<div class="modal-contenedor" *ngIf="showModal">
+  <div class="modal">
+
+    <div *ngIf="modalView === 'final'">
+      <h2>¡Tiempo terminado!</h2>
+      <p>Clicks totales: {{ clicks }}</p>
+
+      <button (click)="irAGuardar()">GUARDAR PUNTUACIÓN</button>
+      <button (click)="cargarPuntuaciones()">VER PUNTUACIONES</button>
+      <button (click)="restart()">VOLVER A JUGAR</button>
+    </div>
+
+    <div *ngIf="modalView === 'guardar'">
+      <h2>Guardar puntuación</h2>
+      <p>Clicks totales: {{ clicks }}</p>
+
+      <input type="text" [(ngModel)]="nombre" placeholder="Ingresa tu nombre">
+
+      <button (click)="guardarPuntuacion()">GUARDAR</button>
+      <button (click)="volverAlFinal()">VOLVER</button>
+    </div>
+
+    <div *ngIf="modalView === 'lista'">
+      <h2>Puntuaciones</h2>
+      <ul>
+        <li *ngFor="let p of puntuaciones">
+          {{ p.nombre }} - {{ p.puntuacion }}
+        </li>
+      </ul>
+      <button (click)="volverAlFinal()">VOLVER</button>
+    </div>
+
+  </div>
+</div>
