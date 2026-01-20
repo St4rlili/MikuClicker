@@ -1,41 +1,71 @@
+#fondo {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+#fondo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../assets/images/fondo.jpg);
+    background-size: cover;
+    background-position: center;
+    opacity: 65%;
+    z-index: -1;
+}
+
 #header {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: #99f0f0;
+    justify-self: center;
+    background-color: #00ddc0 ;
     font-family: 'Kavoon';
     font-size: 24px;
+    width: 25em;
+    border-style: solid;
+    border-width: 0em 0.35em 0.35em 0.35em;
+    border-radius: 1em / 6em;
 }
 
-#contenedor_timer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #bfc4c4;
+#header p {
+    font-size: 20px;
+    width: 100%;
     margin: 0;
-    padding: 0.5em;
-}
-
-#timer {
-    font-family: 'Kavoon';
-    font-size: 24px;
+    padding: 1em 0;
+    border-top: 0.25em solid black;
+    text-align: center;
 }
 
 #main {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 2em 0em;
+    width: 100%;
 }
 
-#main p {
-    font-size: 22px;
-    font-weight: bold;
+#clicks {
+    position: fixed;
+    right: 0;
     font-family: 'Kavoon';
+    font-size: 5rem;
+    text-align: center;
+    background-color: white;
+    width: 2.25em;
+    border-style: solid;
+    border-radius: 50% 0 0 50%;
+    border-width: 0.1em 0em 0.1em 0.1em;
 }
 
 #btnSumar {
-    font-size: 22px;
+    font-size: 2rem;
     font-weight: bold;  
     margin: 3em;
     background-color: transparent;
@@ -54,11 +84,17 @@
 }
 
 #iniciar {
-    padding: 2em 1.5em;
-    margin: 3em;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-self: center;
+    padding: 0.5em;
+    font-size: 2rem;
     font-weight: bold;
     font-family: 'Kavoon';
-    border: 3px solid black;
+    border-style: solid;
+    border-width: 0.20em 0.20em 0em 0.20em;
+    border-radius: 2em / 10em;
     cursor: pointer;
 }
 

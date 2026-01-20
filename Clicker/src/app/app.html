@@ -1,15 +1,15 @@
+<div id="fondo"></div>
 <div id="header">
   <h2 id="titulo">MIKU DA CLICKER</h2>
-</div>
-<div id="contenedor_timer">
-  <h3 id="timer">TIEMPO RESTANTE: {{ display }}</h3>
+  <p class="contador">TIEMPO: {{ display }}</p>
 </div>
 <div id="main">
-  <button id="btnSumar" (click)="aumento(); reproducirSonido()" [disabled]="!timerActive"><img src="/assets/images/miku_plush.png" alt="img"/></button>
-  <p>Cantidad de clicks</p>
-  <p>{{ clicks }}</p>
-  <button id="iniciar" (click)="startTimer(1)" [disabled]="timerStart">INICIAR PARTIDA</button>
+  <button id="btnSumar" (click)="aumento(); reproducirSonido()" [disabled]="!timerActive"><img src="./assets/images/miku_plush.png" alt="img"/></button>
+  <div id="clicks">
+    <p class="contador">{{ clicks }}</p>
+  </div>
 </div>
+<button id="iniciar" (click)="startTimer(1)" [disabled]="timerStart">INICIAR PARTIDA</button>
 <div class="modal-contenedor" *ngIf="showModal">
   <div class="modal">
 
