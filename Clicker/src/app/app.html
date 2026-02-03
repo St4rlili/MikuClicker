@@ -1,15 +1,21 @@
 <div id="fondo"></div>
+
 <div id="header">
   <h2 id="titulo">MIKU DA CLICKER</h2>
   <p class="contador">TIEMPO: <span>{{ display }}</span></p>
 </div>
+
 <div id="main">
-  <button id="btnSumar" (click)="aumento(); reproducirSonido()" [disabled]="!timerActive"><img src="./assets/images/miku_plush.png" alt="img"/></button>
+  <button id="btnSumar" (click)="aumento(); reproducirSonido()" [disabled]="!timerActive">
+    <img src="./assets/images/miku_plush.png" alt="img"/>
+  </button>
   <div id="clicks">
     <p class="contador">{{ clicks }}</p>
   </div>
 </div>
+
 <button id="iniciar" (click)="startTimer(1)" [disabled]="timerStart">INICIAR PARTIDA</button>
+
 <div class="modal-contenedor" *ngIf="showModal">
   <div class="modal">
 
@@ -26,9 +32,19 @@
       <h2>Guardar puntuación</h2>
       <p>Clicks totales: {{ clicks }}</p>
 
-      <input type="text" [(ngModel)]="nombre" placeholder="Ingresa tu nombre">
+      <input type="text" [(ngModel)]="nombre" placeholder="Ingresa tu nombre" />
 
       <button (click)="guardarPuntuacion()">GUARDAR</button>
+      <button (click)="volverAlFinal()">VOLVER</button>
+    </div>
+
+    <div *ngIf="modalView === 'lista'">
+      <h2>Top Puntuaciones</h2>
+      <ul>
+        <li *ngFor="let p of puntuaciones">
+          {{ p.nombre }}: {{ p.puntuacion }}
+        </li>
+      </ul>
       <button (click)="volverAlFinal()">VOLVER</button>
     </div>
 
