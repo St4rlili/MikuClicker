@@ -1,7 +1,7 @@
 <div id="fondo"></div>
 <div id="header">
   <h2 id="titulo">MIKU DA CLICKER</h2>
-  <p class="contador">TIEMPO: {{ display }}</p>
+  <p class="contador">TIEMPO: <span>{{ display }}</span></p>
 </div>
 <div id="main">
   <button id="btnSumar" (click)="aumento(); reproducirSonido()" [disabled]="!timerActive"><img src="./assets/images/miku_plush.png" alt="img"/></button>
@@ -29,16 +29,6 @@
       <input type="text" [(ngModel)]="nombre" placeholder="Ingresa tu nombre">
 
       <button (click)="guardarPuntuacion()">GUARDAR</button>
-      <button (click)="volverAlFinal()">VOLVER</button>
-    </div>
-
-    <div *ngIf="modalView === 'lista'">
-      <h2>Puntuaciones</h2>
-      <ul>
-        <li *ngFor="let p of puntuaciones">
-          {{ p.nombre }} - {{ p.puntuacion }}
-        </li>
-      </ul>
       <button (click)="volverAlFinal()">VOLVER</button>
     </div>
 

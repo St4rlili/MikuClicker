@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT;
+const port = process.env.PORT;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -59,6 +59,6 @@ app.post('/api/puntuaciones', async (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log('Servidor funcionando');
 })

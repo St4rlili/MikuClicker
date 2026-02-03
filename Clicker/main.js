@@ -4,8 +4,8 @@ const { contextIsolated } = require('process');
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 1000,
-        height: 800,
+        width: 1920,
+        height: 1080,
     });
 
     const indexPath = path.join(
